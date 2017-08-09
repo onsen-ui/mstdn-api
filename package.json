@@ -1,0 +1,67 @@
+{
+  "name": "mstdn-api",
+  "version": "0.0.1",
+  "description": "mastodon api library",
+  "main": "./lib/index.js",
+  "typings": "./lib/index.d.ts",
+  "scripts": {
+    "start": "ts-node ./example/node/authorization.ts",
+    "test": "nyc mocha -- test/**/*.test.ts",
+    "coverage": "nyc report --reporter=text-lcov | coveralls",
+    "build": "tsc -p ./",
+    "docs": "typedoc --out ./docs --target ES5 --excludePrivate --mode modules",
+    "bundle": "webpack",
+    "postbundle": "npm run minify",
+    "minify": "ts-node ./uglify.ts",
+    "prepublish": "npm test & npm run build & npm run docs & npm run bundle"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.ts"
+    ],
+    "extension": [
+      ".ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "reporter": [
+      "text-summary",
+      "html"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onsen-ui/mstdn.git"
+  },
+  "author": "'Onsen <'onsen03@gmail.com'> ('https://github.com/onsen-ui')",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onsen-ui/mstdn/issues"
+  },
+  "homepage": "https://github.com/onsen-ui/mstdn#readme",
+  "devDependencies": {
+    "@types/mocha": "^2.2.41",
+    "@types/power-assert": "^1.4.29",
+    "@types/webpack": "^3.0.6",
+    "coveralls": "^2.13.1",
+    "mocha": "^3.5.0",
+    "mocha-lcov-reporter": "^1.3.0",
+    "nyc": "^11.1.0",
+    "power-assert": "^1.4.4",
+    "source-map-support": "^0.4.15",
+    "ts-loader": "^2.3.2",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.5.0",
+    "tslint-config-standard": "^6.0.1",
+    "typedoc": "^0.8.0",
+    "typescript": "^2.4.2",
+    "uglify-js": "^3.0.27",
+    "webpack": "^3.4.1"
+  },
+  "dependencies": {
+    "@types/node": "^8.0.19",
+    "@types/superagent": "^3.5.3",
+    "superagent": "^3.5.2"
+  }
+}
