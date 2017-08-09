@@ -1,11 +1,10 @@
 {
   "name": "mstdn-api",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "mastodon api library",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
   "scripts": {
-    "start": "ts-node ./example/node/authorization.ts",
     "test": "nyc mocha -- test/**/*.test.ts",
     "coverage": "nyc report --reporter=text-lcov | coveralls",
     "build": "tsc -p ./",
