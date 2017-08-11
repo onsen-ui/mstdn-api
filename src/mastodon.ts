@@ -61,19 +61,14 @@ export default class Mastodon {
    */
   public static registerApp (
     client_name: string,
-    options: {
-      scopes?: Scope[],
-      redirect_uris?: string,
-      website?: string
-    } = {
+    options: Partial<{scopes: Scope[], redirect_uris: string, website: string}> = {
       scopes: Scope.DEFAULT,
       redirect_uris: NO_REDIRECT
     },
     baseUrl = 'mstdn.jp'
   ): Promise<OAuth.AppData> {
-    const redirect_uris = options.redirect_uris
     const scopes = options.scopes
-    return this._createApp(client_name, redirect_uris, scopes, options.website, baseUrl)
+    return this.createApp(client_name, options, baseUrl)
       .then(appData => {
         appData.generateUrl(scopes, baseUrl)
         return appData
@@ -106,34 +101,62 @@ export default class Mastodon {
 
   /**
    * generate authorization url
+   *
    * @param client_id your OAuth app's client ID
    * @param options as property, redirect_uri and scope are available, and must be the same as when you register your app
    * @param baseUrl base URL of the target
    */
-  public static generateAuthUrl (client_id: string, options: {redirect_uri?: string, scope?: Scope[]}, baseUrl = 'mstdn.jp') {
+  public static generateAuthUrl (
+    client_id: string,
+    options: Partial<{redirect_uri: string, scope: Scope[]}> = {
+      redirect_uri: NO_REDIRECT,
+      scope: Scope.DEFAULT
+    },
+    baseUrl = 'mstdn.jp'
+  ) {
     const apiUrl = resolveUrl(normalizeBaseUrl(baseUrl), '/oauth/authorize')
-    const query = {
+    const redirect_uri = options.redirect_uri || NO_REDIRECT
+    const scope = options.scope || Scope.DEFAULT
+
+    const query: {
+      client_id: string,
+      redirect_uri: string,
+      scope: string,
+      response_type: string
+    } = {
       client_id,
-      redirect_uri: options.redirect_uri || NO_REDIRECT,
-      scope: options.scope || Scope.DEFAULT,
+      redirect_uri,
+      scope: scope.join(' '),
       response_type: 'code'
     }
     return `${apiUrl}?${stringifyQuery(query)}`
   }
 
-  private static _createApp (
+  public static createApp (
     client_name: string,
-    redirect_uris = NO_REDIRECT,
-    scopes = Scope.DEFAULT,
-    website?: string,
+    options: Partial<{redirect_uris: string, scopes: Scope[], website: string}> = {
+      redirect_uris: NO_REDIRECT,
+      scopes: Scope.DEFAULT
+    },
     baseUrl = 'mstdn.jp'
   ): Promise<OAuth.AppData> {
-    return this._post('apps', {
+    const redirect_uris = options.redirect_uris || NO_REDIRECT
+    const scopes = options.scopes || Scope.DEFAULT
+
+    let params: {
+      client_name: string,
+      redirect_uris: string,
+      scopes: string,
+      website?: string
+    } = {
       client_name,
       redirect_uris,
-      scopes: scopes.join(' '),
-      website: website || null
-    }, baseUrl).then(data => OAuth.AppData.from(data as OAuth.AppDataFromServer))
+      scopes: scopes.join(' ')
+    }
+    if (options.website) params.website = options.website
+
+    return this._post('apps', params, baseUrl)
+      .then(data => OAuth.AppData.from(data as OAuth.AppDataFromServer))
   }
 
   private static _post (path: string, params = {}, baseUrl = 'mstdn.jp'): Promise<object> {
