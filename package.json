@@ -12,6 +12,7 @@
     "bundle": "webpack",
     "postbundle": "npm run minify",
     "minify": "ts-node ./uglify.ts",
+    "ts-node": "ts-node",
     "prepublish": "npm test & npm run build & npm run docs & npm run bundle"
   },
   "nyc": {
