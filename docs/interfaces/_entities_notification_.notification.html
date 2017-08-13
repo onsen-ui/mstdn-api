@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>AppDataFromServer | mstdn-api</title>
+	<title>Notification | mstdn-api</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,16 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_oauth_.html">&quot;oauth&quot;</a>
+					<a href="../modules/_entities_notification_.html">&quot;entities/notification&quot;</a>
 				</li>
 				<li>
-					<a href="../modules/_oauth_.oauth.html">OAuth</a>
-				</li>
-				<li>
-					<a href="_oauth_.oauth.appdatafromserver.html">AppDataFromServer</a>
+					<a href="_entities_notification_.notification.html">Notification</a>
 				</li>
 			</ul>
-			<h1>Interface AppDataFromServer</h1>
+			<h1>Interface Notification</h1>
 		</div>
 	</div>
 </header>
@@ -76,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">AppDataFromServer</span>
+						<span class="target">Notification</span>
 					</li>
 				</ul>
 			</section>
@@ -87,12 +84,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_oauth_.oauth.appdatafromserver.html#client_id" class="tsd-kind-icon">client_<wbr>id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_oauth_.oauth.appdatafromserver.html#client_secret" class="tsd-kind-icon">client_<wbr>secret</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_oauth_.oauth.appdatafromserver.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_oauth_.oauth.appdatafromserver.html#name" class="tsd-kind-icon">name</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_oauth_.oauth.appdatafromserver.html#redirect_uri" class="tsd-kind-icon">redirect_<wbr>uri</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_oauth_.oauth.appdatafromserver.html#website" class="tsd-kind-icon">website</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_entities_notification_.notification.html#account" class="tsd-kind-icon">account</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_entities_notification_.notification.html#created_at" class="tsd-kind-icon">created_<wbr>at</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_entities_notification_.notification.html#id" class="tsd-kind-icon">id</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_entities_notification_.notification.html#status" class="tsd-kind-icon">status</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_entities_notification_.notification.html#type" class="tsd-kind-icon">type</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,22 +97,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="client_id" class="tsd-anchor"></a>
-					<h3>client_<wbr>id</h3>
-					<div class="tsd-signature tsd-kind-icon">client_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="account" class="tsd-anchor"></a>
+					<h3>account</h3>
+					<div class="tsd-signature tsd-kind-icon">account<span class="tsd-signature-symbol">:</span> <a href="_entities_account_.account.html" class="tsd-signature-type">Account</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/oauth.ts#L13">oauth.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/entities/notification.ts#L5">entities/notification.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="client_secret" class="tsd-anchor"></a>
-					<h3>client_<wbr>secret</h3>
-					<div class="tsd-signature tsd-kind-icon">client_<wbr>secret<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="created_at" class="tsd-anchor"></a>
+					<h3>created_<wbr>at</h3>
+					<div class="tsd-signature tsd-kind-icon">created_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/oauth.ts#L14">oauth.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/entities/notification.ts#L6">entities/notification.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -126,37 +122,27 @@
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/oauth.ts#L9">oauth.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/entities/notification.ts#L7">entities/notification.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="name" class="tsd-anchor"></a>
-					<h3>name</h3>
-					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="status" class="tsd-anchor"></a>
+					<h3>status</h3>
+					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <a href="_entities_status_.status.html" class="tsd-signature-type">Status</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/oauth.ts#L10">oauth.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/entities/notification.ts#L8">entities/notification.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="redirect_uri" class="tsd-anchor"></a>
-					<h3>redirect_<wbr>uri</h3>
-					<div class="tsd-signature tsd-kind-icon">redirect_<wbr>uri<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="type" class="tsd-anchor"></a>
+					<h3>type</h3>
+					<div class="tsd-signature tsd-kind-icon">type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"mention"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"reblog"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"favourite"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"follow"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/oauth.ts#L12">oauth.ts:12</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="website" class="tsd-anchor"></a>
-					<h3>website</h3>
-					<div class="tsd-signature tsd-kind-icon">website<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/oauth.ts#L11">oauth.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/onsen-ui/mstdn/blob/e9ff985/src/entities/notification.ts#L9">entities/notification.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -177,7 +163,7 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_entities_mention_.html">"entities/mention"</a>
 					</li>
-					<li class=" tsd-kind-external-module">
+					<li class="current tsd-kind-external-module">
 						<a href="../modules/_entities_notification_.html">"entities/notification"</a>
 					</li>
 					<li class=" tsd-kind-external-module">
@@ -195,13 +181,8 @@
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_mastodon_.html">"mastodon"</a>
 					</li>
-					<li class="current tsd-kind-external-module">
+					<li class=" tsd-kind-external-module">
 						<a href="../modules/_oauth_.html">"oauth"</a>
-						<ul>
-							<li class="current tsd-kind-module tsd-parent-kind-external-module">
-								<a href="../modules/_oauth_.oauth.html">OAuth</a>
-							</li>
-						</ul>
 					</li>
 					<li class=" tsd-kind-external-module">
 						<a href="../modules/_scope_.html">"scope"</a>
@@ -216,42 +197,30 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_oauth_.oauth.appdata.html" class="tsd-kind-icon">App<wbr>Data</a>
-					</li>
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_oauth_.oauth.tokendata.html" class="tsd-kind-icon">Token<wbr>Data</a>
-					</li>
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_oauth_.oauth.appdatafromserver.html" class="tsd-kind-icon">App<wbr>Data<wbr>From<wbr>Server</a>
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module">
+						<a href="_entities_notification_.notification.html" class="tsd-kind-icon">Notification</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_oauth_.oauth.appdatafromserver.html#client_id" class="tsd-kind-icon">client_<wbr>id</a>
+								<a href="_entities_notification_.notification.html#account" class="tsd-kind-icon">account</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_oauth_.oauth.appdatafromserver.html#client_secret" class="tsd-kind-icon">client_<wbr>secret</a>
+								<a href="_entities_notification_.notification.html#created_at" class="tsd-kind-icon">created_<wbr>at</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_oauth_.oauth.appdatafromserver.html#id" class="tsd-kind-icon">id</a>
+								<a href="_entities_notification_.notification.html#id" class="tsd-kind-icon">id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_oauth_.oauth.appdatafromserver.html#name" class="tsd-kind-icon">name</a>
+								<a href="_entities_notification_.notification.html#status" class="tsd-kind-icon">status</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_oauth_.oauth.appdatafromserver.html#redirect_uri" class="tsd-kind-icon">redirect_<wbr>uri</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_oauth_.oauth.appdatafromserver.html#website" class="tsd-kind-icon">website</a>
+								<a href="_entities_notification_.notification.html#type" class="tsd-kind-icon">type</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
-						<a href="_oauth_.oauth.tokendatafromserver.html" class="tsd-kind-icon">Token<wbr>Data<wbr>From<wbr>Server</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

@@ -31,7 +31,7 @@ function loop (promise: Promise<Status[]>): Promise<Status[]> {
     }
 
     const max_id = statuses[statuses.length - 1].id
-    if (max_id < 34185000) {
+    if (max_id < 34845000) {
       return Promise.reject('stopped')
     }
 
