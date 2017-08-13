@@ -3,14 +3,16 @@
 [![Coverage Status](https://coveralls.io/repos/github/onsen-ui/mstdn/badge.svg?branch=master)](https://coveralls.io/github/onsen-ui/mstdn?branch=master)
 
 UMD (including Node, Browser, and TypeScript!) Library for Mastodon API  
-[Github repository](https://github.com/onsen-ui/mstdn), and  
-[npm package](https://www.npmjs.com/package/mstdn-api) are available.
+[Github repository](https://github.com/onsen-ui/mstdn), and [npm package](https://www.npmjs.com/package/mstdn-api) are available.
 
 # Why mstdn-api?
 You can use this library **universally**: Node, Browser(ES5), and TypeScript.
 
 # How to install
-`$ npm i -S mstdn-api`
+
+```
+$ npm i -S mstdn-api
+```
 
 # How to use
 There are simple examples in ./example.
@@ -19,11 +21,17 @@ if you can use import-syntax, then:
 
 ```
 import Mastodon from 'mstdn-api'
+
+const ACCESS_TOKEN = '......' // OAuth access_token (required)
+const BASE_URL = 'mstdn.jp' // Mastodon's hostname or baseUrl (Optional)
+const mstdn = new Mastodon(ACCESS_TOKEN, BASE_URL)
 ```
 
+See [documents of class Mastodon](https://rawgit.com/onsen-ui/mstdn/master/docs/classes/_mastodon_.mastodon.html)
+
 # CDN
+for development: [https://rawgit.com/onsen-ui/mstdn/master/dist/mastodon.min.js](https://rawgit.com/onsen-ui/mstdn/master/dist/mastodon.min.js)
 provided by [rawgit.com](https://rawgit.com/)  
-for development: [mastodon.min.js](https://rawgit.com/onsen-ui/mstdn/master/dist/mastodon.min.js)
 
 variable 'Mastodon' (window.Mastodon) is **globally** exported.
 
