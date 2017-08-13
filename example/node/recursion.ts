@@ -4,10 +4,7 @@
 
 import { createInterface } from 'readline'
 import Mastodon from '../../src/mastodon'
-
-interface Status {
-  id: number
-}
+import Status from '../../src/entities/status'
 
 const rl = createInterface({
   input: process.stdin,
@@ -16,13 +13,15 @@ const rl = createInterface({
 
 let mastodon: Mastodon
 
-new Promise<string>(resolve => {
+const promise = new Promise<string>(resolve => {
   rl.question('Enter your access token: ', token => {
     mastodon = new Mastodon(token)
     resolve()
     rl.close()
   })
-}).then(() => loop(mastodon.get('timelines/home', {limit: 40}) as Promise<Status[]>))
+}).then(() => mastodon.get<Status[]>('timelines/home', {limit: 40}))
+
+loop(promise)
   .catch(err => console.error(err))
 
 function loop (promise: Promise<Status[]>): Promise<Status[]> {
@@ -40,6 +39,6 @@ function loop (promise: Promise<Status[]>): Promise<Status[]> {
       console.log(status.id)
     }
 
-    return loop(mastodon.get('timelines/home', {max_id, limit: 40}) as Promise<Status[]>)
+    return loop(mastodon.get('timelines/home', {max_id, limit: 40}))
   })
 }

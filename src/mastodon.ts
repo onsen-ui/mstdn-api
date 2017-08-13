@@ -151,7 +151,7 @@ export default class Mastodon {
     const redirect_uris = options.redirect_uris || NO_REDIRECT
     const scopes = options.scopes || Scope.DEFAULT
 
-    let params: {
+    const params: {
       client_name: string,
       redirect_uris: string,
       scopes: string,
@@ -180,12 +180,25 @@ export default class Mastodon {
    * @param path relative path from ${baseUrl}/api/v1/ or absolute path
    * @param params Query parameters
    */
-  public get (path: string, params = {}): Promise<object> {
+  public get<T> (path: string, params = {}): Promise<T> {
     return superagent
       .get(resolveUrl(this.apiUrl, path))
       .set('Authorization', `Bearer ${this.accessToken}`)
       .query(params)
-      .then(resp => resp.body)
+      .then(resp => resp.body as T)
+  }
+
+  /**
+   * PATCH request to mastodon REST API
+   * @param path relative path from ${baseUrl}/api/v1/ or absolute path
+   * @param params Form data
+   */
+  public patch<T> (path: string, params = {}): Promise<T> {
+    return superagent
+      .patch(resolveUrl(this.apiUrl, path))
+      .set('Authorization', `Bearer ${this.accessToken}`)
+      .send(params)
+      .then(resp => resp.body as T)
   }
 
   /**
@@ -193,23 +206,23 @@ export default class Mastodon {
    * @param path relative path from ${baseUrl}/api/v1/ or absolute path
    * @param params Form data
    */
-  public post (path: string, params = {}): Promise<object> {
+  public post<T> (path: string, params = {}): Promise<T> {
     return superagent
       .post(resolveUrl(this.apiUrl, path))
       .set('Authorization', `Bearer ${this.accessToken}`)
       .send(params)
-      .then(resp => resp.body)
+      .then(resp => resp.body as T)
   }
 
   /**
    * DELETE request to mastodon REST API
    * @param path relative path from ${baseUrl}/api/v1/ or absolute path
    */
-  public del (path: string): Promise<object> {
+  public del (path: string): Promise<{}> {
     return superagent
       .del(resolveUrl(this.apiUrl, path))
       .set('Authorization', `Bearer ${this.accessToken}`)
-      .then(resp => resp.body)
+      .then(resp => resp.body as {})
   }
 
   /**

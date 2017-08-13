@@ -22,11 +22,3 @@ export function includes<T> (wanted: T): (sequence: Iterable<T>) => boolean {
     return result
   }
 }
-
-/*
-export function normalizeParams<T> (params: T): T {
-  class Entity extends T {
-  }
-  return params
-}
-*/
